@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talent Match — Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">Talent Match <span class="rule">/ student</span></div>
+    <nav>
+      <a href="/student" class="active">Upload resume</a>
+      <a href="/recruiter">Recruiter view</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <p class="eyebrow">Step 01 — Submission</p>
+    <h1 class="page-title">Get your resume into the pool.</h1>
+    <p class="page-lede">
+      Enter your details once, then upload a PDF resume. We'll read it,
+      structure it, and make it visible to recruiters matching against
+      live job descriptions.
+    </p>
+
+    <!-- Registration card -->
+    <section class="card" id="register-card">
+      <h2 class="card-title">Your details</h2>
+      <p class="card-sub">Just a name and email — no password needed.</p>
+
+      <div id="register-status" class="status-banner"></div>
+
+      <form id="register-form">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          <div class="hint">If you've registered before, the same email picks up your existing profile.</div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="register-btn">Continue</button>
+      </form>
+    </section>
+
+    <!-- Upload card (hidden until registered) -->
+    <section class="card" id="upload-card" style="display:none;">
+      <h2 class="card-title">Upload your resume</h2>
+      <p class="card-sub">PDF only. We'll extract the text and structure your profile automatically.</p>
+
+      <div id="upload-status" class="status-banner"></div>
+
+      <label class="dropzone" id="dropzone" tabindex="0">
+        <input type="file" id="resume-file" accept="application/pdf" />
+        <div class="dz-label">Click to choose a PDF, or drag it here</div>
+        <div class="dz-hint">Text-based PDF resumes only — scanned images aren't supported yet.</div>
+        <div class="dz-filename" id="dz-filename"></div>
+      </label>
+
+      <div style="height:18px;"></div>
+      <button type="button" class="btn btn-primary btn-block" id="upload-btn" disabled>Upload &amp; parse resume</button>
+    </section>
+
+    <!-- Parsed profile preview -->
+    <section class="card" id="profile-card" style="display:none;">
+      <h2 class="card-title">Your parsed profile</h2>
+      <p class="card-sub">This is what recruiters will see when matching you against job descriptions.</p>
+      <div id="profile-content"></div>
+    </section>
+  </main>
+
+  <script src="/static/js/student.js"></script>
+</body>
+</html>

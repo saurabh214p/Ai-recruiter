@@ -1,0 +1,33 @@
+# =============================================
+# RecruitAI - Requirements
+# AI-Powered Campus Recruitment Platform
+# =============================================
+
+# --- Core Framework ---
+streamlit>=1.45.0
+
+# --- LLM & Orchestration ---
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-google-genai>=2.1.0      # Gemini (optional)
+langchain-openai>=0.3.0            # OpenAI (optional)
+langchain-groq>=0.2.0              # Groq (default for fast, high-limit inference)
+langgraph>=0.4.0
+
+# --- Vector Database ---
+qdrant-client>=1.14.0
+
+# --- Embeddings ---
+sentence-transformers>=3.4.0
+
+# --- PDF Parsing ---
+PyMuPDF>=1.25.0
+
+# --- Data Models & Validation ---
+pydantic>=2.11.0
+
+# --- Environment Management ---
+python-dotenv>=1.1.0
+
+# --- Utilities ---
+uuid6>=2024.7.10

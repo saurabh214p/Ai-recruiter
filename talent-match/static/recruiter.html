@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talent Match — Recruiter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">Talent Match <span class="rule">/ recruiter</span></div>
+    <nav>
+      <a href="/student">Student upload</a>
+      <a href="/recruiter" class="active">Recruiter view</a>
+    </nav>
+  </header>
+
+  <main class="page-shell wide">
+    <p class="eyebrow">Step 01 — Brief</p>
+    <h1 class="page-title">Describe the role. We'll rank who fits.</h1>
+    <p class="page-lede">
+      Paste a job description below. Three agents read it, compare it against
+      every student profile in the pool, and hand back a ranked shortlist
+      with the reasoning behind each score.
+    </p>
+
+    <section class="card" id="jd-card">
+      <h2 class="card-title">Job description</h2>
+      <p class="card-sub">Be as specific as the real posting — required skills and experience level drive the ranking.</p>
+
+      <div id="jd-status" class="status-banner"></div>
+
+      <form id="jd-form">
+        <div class="field">
+          <label for="job-title">Job title</label>
+          <input type="text" id="job-title" name="job-title" placeholder="Backend Engineer Intern" required />
+        </div>
+        <div class="field">
+          <label for="recruiter-name">Your name or company (optional)</label>
+          <input type="text" id="recruiter-name" name="recruiter-name" placeholder="Acme Corp" />
+        </div>
+        <div class="field">
+          <label for="job-description">Full job description</label>
+          <textarea id="job-description" name="job-description" placeholder="We're looking for a backend intern skilled in Python, FastAPI, and SQL..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="jd-submit-btn">Find top matches</button>
+      </form>
+    </section>
+
+    <section id="results-section" style="display:none;">
+      <p class="eyebrow" id="results-eyebrow">Step 02 — Shortlist</p>
+      <h2 class="page-title" id="results-title" style="font-size:1.6rem;">Top candidates</h2>
+      <p class="page-lede" id="results-sub"></p>
+
+      <div class="ledger" id="ledger"></div>
+    </section>
+
+    <section id="empty-section" class="empty-state" style="display:none;">
+      <div class="empty-mark">∅</div>
+      <strong>No candidates in the pool yet.</strong>
+      <p>Once students upload resumes, they'll show up here ranked against this job.</p>
+    </section>
+  </main>
+
+  <script src="/static/js/recruiter.js"></script>
+</body>
+</html>
